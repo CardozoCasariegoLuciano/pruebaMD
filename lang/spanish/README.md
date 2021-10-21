@@ -1,5 +1,5 @@
 <p align="center">
-<a href="../../">English</a> |
+<a href="https://github.com/CardozoCasariegoLuciano/pruebaMD">English</a> |
   <span>Español</span>  
 </p>
 
@@ -43,7 +43,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-uede automatizar el proceso poniendo el comando en su archivo de configuración
+Puede automatizar el proceso poniendo el comando en su archivo de configuración
 de vim, tal como sugerimos [aquí][auto].
 
 
@@ -97,11 +97,11 @@ Añada una sección para vim-plug en su `~/.vimrc` (o `stdpath('config') . '/ini
  
 1. Comience la sección con `call plug#begin()`
 1. Liste los plugins con el comando `Plug`
-1. Finalice la sección con  `call plug#end()` para actualizar `&runtimepath` e inicializar el sistema de plugin
+1. Finalice la sección con `call plug#end()` para actualizar `&runtimepath` e inicializar el sistema de plugin
    - Automáticamente ejecuta `filetype plugin indent on` y `syntax enable`.
      Puede revertir estas configuraciones luego del llamado. ej: `filetype indent off`, `syntax off`, etc.
 
-#### Example
+#### Ejemplo
 
 ```vim
 " Specify a directory for plugins
@@ -143,28 +143,28 @@ Plug '~/my-prototype-plugin'
 call plug#end()
 ```
 
-Reload .vimrc and `:PlugInstall` to install plugins.
+Recargue el .vimrc y ejecute `:PlugInstall` para instalar los plugins
 
-### Commands
+### Comandos
 
-| Command                             | Description                                                        |
+| Comando                             | Descripcion                                                        |
 | ----------------------------------- | ------------------------------------------------------------------ |
-| `PlugInstall [name ...] [#threads]` | Install plugins                                                    |
-| `PlugUpdate [name ...] [#threads]`  | Install or update plugins                                          |
-| `PlugClean[!]`                      | Remove unlisted plugins (bang version will clean without prompt) |
-| `PlugUpgrade`                       | Upgrade vim-plug itself                                            |
-| `PlugStatus`                        | Check the status of plugins                                        |
-| `PlugDiff`                          | Examine changes from the previous update and the pending changes   |
-| `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins  |
+| `PlugInstall [name ...] [#threads]` | Instalar plugins                                                   |
+| `PlugUpdate [name ...] [#threads]`  | Instalar o actualizar plugins                                      |
+| `PlugClean[!]`                      | Remover plugins sin listar                                         |
+| `PlugUpgrade`                       | Actualizar vim-plug                                                |
+| `PlugStatus`                        | Verificar el estado de los plugins                                 |
+| `PlugDiff`                          | Examinar cambios entre la ultima actualizacion y los cambios pendientes |
+| `PlugSnapshot[!] [output path]`     | Generar un script para restaurar el snapshot actual de plugins     |
 
-### `Plug` options
+### Opciones `Plug` 
 
-| Option                  | Description                                      |
+| Opcion                  | Descripcion                                      |
 | ----------------------- | ------------------------------------------------ |
-| `branch`/`tag`/`commit` | Branch/tag/commit of the repository to use       |
-| `rtp`                   | Subdirectory that contains Vim plugin            |
-| `dir`                   | Custom directory for the plugin                  |
-| `as`                    | Use different name for the plugin                |
+| `branch`/`tag`/`commit` | Branch/tag/commit del repositorio a usar         |
+| `rtp`                   | Subdirectorio qie contenga Vim Plugin            |
+| `dir`                   | Directorio personalizado para plugins            |
+| `as`                    | Usar un nombre distinto para el plugin           |
 | `do`                    | Post-update hook (string or funcref)             |
 | `on`                    | On-demand loading: Commands or `<Plug>`-mappings |
 | `for`                   | On-demand loading: File types                    |
