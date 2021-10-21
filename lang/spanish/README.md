@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://github.com/junegunn/vim-plug">English</a> |
+<a href="../../">English</a> |
   <span>Español</span>  
 </p>
 
@@ -7,31 +7,32 @@
 <img src="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.png" height="75" alt="vim-plug">[![travis-ci](https://travis-ci.org/junegunn/vim-plug.svg?branch=master)](https://travis-ci.org/junegunn/vim-plug)
 ===
 
-A minimalist Vim plugin manager.
+Un administrador de plugins minimalista para Vim.
 
 <img src="https://raw.githubusercontent.com/junegunn/i/master/vim-plug/installer.gif" height="450">
 
 ### Pros.
 
-- Easy to set up: Single file. No boilerplate code required.
-- Easy to use: Concise, intuitive syntax
-- [Super-fast][40/4] parallel installation/update
-  (with any of `+job`, `+python`, `+python3`, `+ruby`, or [Neovim][nv])
-- Creates shallow clones to minimize disk space usage and download time
-- On-demand loading for [faster startup time][startup-time]
-- Can review and rollback updates
-- Branch/tag/commit support
-- Post-update hooks
-- Support for externally managed plugins
+- Fácil de iniciar: Un único archivo. Sin código repetido.
+- Fácil de usar: Conciso, sintaxis intuitiva
+- Instalación/actualización en paralelo [Super-rapida][40/4]
+   (con cualquiera de: `+job`, `+python`, `+python3`, `+ruby`, o [Neovim][nv])
+- Crea clones simples para minimizar uso de disco y tiempo de descarga
+- Carga a demanda con [faster startup time][startup-time]
+- Puedes revisar y revertir actualizaciones
+- Soporte para branch/tag/commit
+- Ganchos post-actualización
+- Soporte para complementos externos
+
 
 [40/4]: https://raw.githubusercontent.com/junegunn/i/master/vim-plug/40-in-4.gif
 [nv]: http://neovim.org/
 [startup-time]: https://github.com/junegunn/vim-startuptime-benchmark#result
 
-### Installation
+### Instalación
 
-[Download plug.vim](https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
-and put it in the "autoload" directory.
+[Descarga plug.vim](https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
+y peguelo en el directorio "autoload".
 
 #### Vim
 
@@ -42,8 +43,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-You can automate the process by putting the command in your Vim configuration
-file as suggested [here][auto].
+uede automatizar el proceso poniendo el comando en su archivo de configuración
+de vim, tal como sugerimos [aquí][auto].
+
 
 [auto]: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
 
@@ -77,27 +79,27 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
     ni "$(@($env:XDG_DATA_HOME, $env:LOCALAPPDATA)[$null -eq $env:XDG_DATA_HOME])/nvim-data/site/autoload/plug.vim" -Force
 ```
 
-### Getting Help
-
-- See [tutorial] page to learn the basics of vim-plug
-- See [tips] and [FAQ] pages for common problems and questions
-- See [requirements] page for debugging information & tested configurations
-- Create an [issue](https://github.com/junegunn/vim-plug/issues/new)
-
+### Obteniendo ayuda
+ 
+- Consulte la página [tutorial] para aprender las bases de vim-plug
+- Consulte las paginas [tips] y [FAQ] por problemas comunes y preguntas
+- Consulte la página [requisitos] para obtener información sobre depuración y configuraciones probadas
+- Cree un [issue](https://github.com/junegunn/vim-plug/issues/new)
+ 
 [tutorial]: https://github.com/junegunn/vim-plug/wiki/tutorial
 [tips]: https://github.com/junegunn/vim-plug/wiki/tips
 [FAQ]: https://github.com/junegunn/vim-plug/wiki/faq
 [requirements]: https://github.com/junegunn/vim-plug/wiki/requirements
 
-### Usage
+### Uso
 
-Add a vim-plug section to your `~/.vimrc` (or `stdpath('config') . '/init.vim'` for Neovim)
-
-1. Begin the section with `call plug#begin()`
-1. List the plugins with `Plug` commands
-1. `call plug#end()` to update `&runtimepath` and initialize plugin system
-    - Automatically executes `filetype plugin indent on` and `syntax enable`.
-      You can revert the settings after the call. e.g. `filetype indent off`, `syntax off`, etc.
+Añada una sección para vim-plug en su `~/.vimrc` (o `stdpath('config') . '/init.vim'` para Neovim)
+ 
+1. Comience la sección con `call plug#begin()`
+1. Liste los plugins con el comando `Plug`
+1. Finalice la sección con  `call plug#end()` para actualizar `&runtimepath` e inicializar el sistema de plugin
+   - Automáticamente ejecuta `filetype plugin indent on` y `syntax enable`.
+     Puede revertir estas configuraciones luego del llamado. ej: `filetype indent off`, `syntax off`, etc.
 
 #### Example
 

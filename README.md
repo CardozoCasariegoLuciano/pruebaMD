@@ -2,7 +2,6 @@
   <span>English</span> |
   <a href="https://github.com/junegunn/vim-plug/tree/master/lang/spanish">Español</a>
 </p>
-https://github.com/alvarotrigo/fullPage.js/tree/master/lang/spanish
 
 <img src="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.png" height="75" alt="vim-plug">[![travis-ci](https://travis-ci.org/junegunn/vim-plug.svg?branch=master)](https://travis-ci.org/junegunn/vim-plug)
 ===
