@@ -4,7 +4,7 @@
 <img src="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.png" height="75" alt="vim-plug">[![travis-ci](https://travis-ci.org/junegunn/vim-plug.svg?branch=master)](https://travis-ci.org/junegunn/vim-plug)
 ===
 
-<p align="center">
+<p>
 <a href="https://github.com/CardozoCasariegoLuciano/pruebaMD">English</a> |
   <span>Español</span>  
 </p>
@@ -23,7 +23,7 @@ Un administrador de plugins minimalista para Vim.
 - Carga a demanda con [faster startup time][startup-time]
 - Puedes revisar y revertir actualizaciones
 - Soporte para branch/tag/commit
-- Ganchos post-actualización
+- Acciones post-actualización
 - Soporte para complementos externos
 
 
@@ -34,7 +34,7 @@ Un administrador de plugins minimalista para Vim.
 ### Instalación
 
 [Descarga plug.vim](https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim)
-y peguelo en el directorio "autoload".
+y péguelo en el directorio "autoload".
 
 #### Vim
 
@@ -106,42 +106,44 @@ Añada una sección para vim-plug en su `~/.vimrc` (o `stdpath('config') . '/ini
 #### Ejemplo
 
 ```vim
-" Specify a directory for plugins
-" - For Neovim: stdpath('data') . '/plugged'
-" - Avoid using standard Vim directory names like 'plugin'
+" Especificar un directorio para plugins
+"- Para Neovim: stdpath ('data'). '/plugged'
+"- Evite el uso de nombres de directorios estándar de Vim como 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
+" Asegúrese de usar comillas simples
 
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+
+" Notación abreviada; busca https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
 
-" Any valid git URL is allowed
+" Se permite cualquier URL de git válida
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Multiple Plug commands can be written in a single line using | separators
+" Se pueden escribir varios comandos Plug en una sola línea utilizando separadores |
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" On-demand loading
+" Carga bajo demanda
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Using a non-default branch
+" Usando una rama no predeterminada
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+" Usando una versión etiquetada; comodín permitido (requiere git 1.9.2 o superior)
 Plug 'fatih/vim-go', { 'tag': '*' }
 
-" Plugin options
+" opciones del plugin 
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
-" Plugin outside ~/.vim/plugged with post-update hook
+
+" Plugin fuera de ~/.vim/plugged con una acción post-actualización
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
-" Unmanaged plugin (manually installed and updated)
+"Plugin no administrado (instalado y actualizado manualmente)
 Plug '~/my-prototype-plugin'
 
-" Initialize plugin system
+" Inicializar el sistema de plugins
 call plug#end()
 ```
 
@@ -149,36 +151,36 @@ Recargue el .vimrc y ejecute `:PlugInstall` para instalar los plugins
 
 ### Comandos
 
-| Comando                             | Descripcion                                                        |
+| Comando                             | Descripción                                                        |
 | ----------------------------------- | ------------------------------------------------------------------ |
 | `PlugInstall [name ...] [#threads]` | Instalar plugins                                                   |
 | `PlugUpdate [name ...] [#threads]`  | Instalar o actualizar plugins                                      |
 | `PlugClean[!]`                      | Remover plugins sin listar                                         |
 | `PlugUpgrade`                       | Actualizar vim-plug                                                |
 | `PlugStatus`                        | Verificar el estado de los plugins                                 |
-| `PlugDiff`                          | Examinar cambios entre la ultima actualizacion y los cambios pendientes |
+| `PlugDiff`                          | Examinar cambios entre la última actualización y los cambios pendientes |
 | `PlugSnapshot[!] [output path]`     | Generar un script para restaurar el snapshot actual de plugins     |
 
 ### Opciones `Plug` 
 
-| Opcion                  | Descripcion                                      |
+| Opcion                  | Descripción                                      |
 | ----------------------- | ------------------------------------------------ |
 | `branch`/`tag`/`commit` | Branch/tag/commit del repositorio a usar         |
 | `rtp`                   | Subdirectorio que contiene Vim Plugin            |
 | `dir`                   | Directorio personalizado para plugins            |
 | `as`                    | Usar un nombre distinto para el plugin           |
-| `do`                    | Acciónes post-actualizacion (string o funcref)    |
+| `do`                    | Acciones post-actualización  (string o funcref)    |
 | `on`                    | Carga bajo demanda: Comandos o asignaciones `<Plug>` |
 | `for`                   | Carga bajo demanda: Tipos de archivo            |
 | `frozen`                | No se actualizará a menos que se indique explícitamente |
 
 ### Opciones globales
 
-| Bandera                | Por defecto                    | Descripcion                                        |
+| Bandera                | Por defecto                    | Descripción                                        |
 | ------------------- | --------------------------------- | ------------------------------------------------------ |
 | `g:plug_threads`    | 16                                | Número por defecto de subprocesos a utilizar           |
-| `g:plug_timeout`    | 60                                | Tiempo limite de cada tarea en segundos (*Ruby & Python*)  |
-| `g:plug_retries`    | 2                                 | Número de re-intentos en caso de timeout (*Ruby & Python*) |
+| `g:plug_timeout`    | 60                                | Tiempo límite de cada tarea en segundos (*Ruby & Python*)  |
+| `g:plug_retries`    | 2                                 | Número de reintentos en caso de timeout (*Ruby & Python*) |
 | `g:plug_shallow`    | 1                                 | Usar clon superficial                                  |
 | `g:plug_window`     | `vertical topleft new`            | Comando para abrir la ventana de  `<Plug>`             |
 | `g:plug_pwindow`    | `above 12new`                     | Comando para abrir la vista previa de `PlugDiff`       |
@@ -208,22 +210,22 @@ call plug#end()
 ### Carga bajo demanda de plugins
 
 ```vim
-" NERD tree will be loaded on the first invocation of NERDTreeToggle command
+" NERD tree será cargado en la primera invocación del comando NERDTreeToggle
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
-" Multiple commands
+" Múltiples comandos
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHDashboard', 'GHActivity'] }
 
-" Loaded when clojure file is opened
+" Cargado cuando se abre un archivo clojure
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
-" Multiple file types
+" Múltiples tipos de archivos
 Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
 
-" On-demand loading on both conditions
+"Carga bajo demanda con ambas condiciones
 Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' }
 
-" Code to execute when the plugin is lazily loaded on demand
+"Código para ejecutar cuando el plugin se carga de forma diferida a pedido
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 autocmd! User goyo.vim echom 'Goyo is now loaded!'
 ```
@@ -237,9 +239,9 @@ antes de aplicar la opción.
 
 ### Acciónes post-actualizacion
 
-Hay algunos plugins que requieren pasos extra luego de la instalacion o 
-actualizacion. En esos casos, use la opcion `do` para describir la tarea
-a ser ejecutada
+Hay algunos plugins que requieren pasos extra luego de la instalación 
+o actualización. En esos casos, use la opción do para describir la 
+tarea a ser ejecutada
 
 ```vim
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -253,15 +255,15 @@ Si el valor comienza com `:`, sera considerado como un comando de Vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 ```
 
-Si usted necesita un mayor control, puede pasarle una referencia a una funcion
-Vim que tome un solo argumento
+Si usted necesita un mayor control, puede pasarle una referencia 
+a una función Vim que tome un solo argumento
 
 ```vim
 function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
+  " info es un diccionario con 3 campos 
+  " - name:   nombre del plugin
+  " - status: 'installed', 'updated', o 'unchanged'
+  " - force: configurado en PlugInstall! o PlugUpdate!
   if a:info.status == 'installed' || a:info.force
     !./install.py
   endif
@@ -270,13 +272,15 @@ endfunction
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 ```
 
-Ambas acciónes post-actualizacion se ejecutan dentro del directorio del plugin
-y solo se ejecutan cuando el repositorio haya cambiado, pero puede obligarlo a
-ejecutarse incondicionalmente con los comandos: `PlugInstall!` Y `PlugUpdate!`.
+Ambas acciones post-actualización se ejecutan dentro del 
+directorio del plugin y solo se ejecutan cuando el 
+repositorio haya cambiado, pero puede obligarlo a ejecutarse 
+incondicionalmente con los comandos: PlugInstall! Y PlugUpdate!.
 
-Asegúrese de evitar las barras y las comillas dobles cuando escriba la opción `do` 
-en línea, ya que se reconocen erróneamente como separadores de comandos o como 
-el comienzo del comentario final.
+Asegúrese de evitar las barras y las comillas dobles cuando 
+escriba la opción do en línea, ya que se reconocen erróneamente 
+como separadores de comandos o como el comienzo del comentario 
+final.
 
 ```vim
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
@@ -292,17 +296,18 @@ Plug 'junegunn/fzf', { 'do': g:fzf_install }
 
 ### `PlugInstall!` y `PlugUpdate!`
 
-El instalador toma los siguientes pasos cuando se instala o actualizaun plugin
+El instalador toma los siguientes pasos cuando se instala o actualiza un plugin
 
 1. `git clone` o `git fetch` desde el origen
 2. Verifica ramas, tags o commits y opcionalmente `git merge` ramas remotas
-3. Si el plugin fue actualizado (o instalado por primera vez) If the plugin was updated (or installed for the first time)
-    1. actualiza submodulos
-    2. Ejecuta acciones post-actualizacion
+3. Si el plugin fue actualizado (o instalado por primera vez)
+    1. actualiza submódulos
+    2. Ejecuta acciones post-actualización
 
-Los comandos con el sufijo `!` se aseguran que todos los pasos son ejecutados incondicionalmmte
+Los comandos con el sufijo `!` se aseguran que todos los pasos son ejecutados incondicionalmente
 
-### Articulos
+
+### Artículos
 
 - [Escribiendo mi propio administrador de plugins para vim](http://junegunn.kr/2013/09/writing-my-own-vim-plugin-manager)
 - [Plugins de vim y tiempo de inicio](http://junegunn.kr/2014/07/vim-plugins-and-startup-time)
