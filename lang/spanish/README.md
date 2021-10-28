@@ -1,11 +1,13 @@
-<p align="center">
-<a href="https://github.com/CardozoCasariegoLuciano/pruebaMD">English</a> |
-  <span>Español</span>  
-</p>
+
 
 
 <img src="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.png" height="75" alt="vim-plug">[![travis-ci](https://travis-ci.org/junegunn/vim-plug.svg?branch=master)](https://travis-ci.org/junegunn/vim-plug)
 ===
+
+<p align="center">
+<a href="https://github.com/CardozoCasariegoLuciano/pruebaMD">English</a> |
+  <span>Español</span>  
+</p>
 
 Un administrador de plugins minimalista para Vim.
 
@@ -162,40 +164,40 @@ Recargue el .vimrc y ejecute `:PlugInstall` para instalar los plugins
 | Opcion                  | Descripcion                                      |
 | ----------------------- | ------------------------------------------------ |
 | `branch`/`tag`/`commit` | Branch/tag/commit del repositorio a usar         |
-| `rtp`                   | Subdirectorio qie contenga Vim Plugin            |
+| `rtp`                   | Subdirectorio que contiene Vim Plugin            |
 | `dir`                   | Directorio personalizado para plugins            |
 | `as`                    | Usar un nombre distinto para el plugin           |
-| `do`                    | Post-update hook (string or funcref)             |
-| `on`                    | On-demand loading: Commands or `<Plug>`-mappings |
-| `for`                   | On-demand loading: File types                    |
-| `frozen`                | Do not update unless explicitly specified        |
+| `do`                    | Acciónes post-actualizacion (string o funcref)    |
+| `on`                    | Carga bajo demanda: Comandos o asignaciones `<Plug>` |
+| `for`                   | Carga bajo demanda: Tipos de archivo            |
+| `frozen`                | No se actualizará a menos que se indique explícitamente |
 
-### Global options
+### Opciones globales
 
-| Flag                | Default                           | Description                                            |
+| Bandera                | Por defecto                    | Descripcion                                        |
 | ------------------- | --------------------------------- | ------------------------------------------------------ |
-| `g:plug_threads`    | 16                                | Default number of threads to use                       |
-| `g:plug_timeout`    | 60                                | Time limit of each task in seconds (*Ruby & Python*)   |
-| `g:plug_retries`    | 2                                 | Number of retries in case of timeout (*Ruby & Python*) |
-| `g:plug_shallow`    | 1                                 | Use shallow clone                                      |
-| `g:plug_window`     | `vertical topleft new`            | Command to open plug window                            |
-| `g:plug_pwindow`    | `above 12new`                     | Command to open preview window in `PlugDiff`           |
-| `g:plug_url_format` | `https://git::@github.com/%s.git` | `printf` format to build repo URL (Only applies to the subsequent `Plug` commands) |
+| `g:plug_threads`    | 16                                | Número por defecto de subprocesos a utilizar           |
+| `g:plug_timeout`    | 60                                | Tiempo limite de cada tarea en segundos (*Ruby & Python*)  |
+| `g:plug_retries`    | 2                                 | Número de re-intentos en caso de timeout (*Ruby & Python*) |
+| `g:plug_shallow`    | 1                                 | Usar clon superficial                                  |
+| `g:plug_window`     | `vertical topleft new`            | Comando para abrir la ventana de  `<Plug>`             |
+| `g:plug_pwindow`    | `above 12new`                     | Comando para abrir la vista previa de `PlugDiff`       |
+| `g:plug_url_format` | `https://git::@github.com/%s.git` | `printf` formato para crear la URL del repositorio (solo se aplica a los comandos `Plug` subsiguientes) | 
 
 
-### Keybindings
+### Atajos de teclado
 
 - `D` - `PlugDiff`
 - `S` - `PlugStatus`
-- `R` - Retry failed update or installation tasks
-- `U` - Update plugins in the selected range
-- `q` - Close the window
+- `R` - Reintentar actualizaciones o instalaciones fallidas
+- `U` - Actualizar plugins en el rango seleccionado
+- `q` - Cerrar ventana
 - `:PlugStatus`
-    - `L` - Load plugin
+    - `L` - Cargar plugin
 - `:PlugDiff`
-    - `X` - Revert the update
+    - `X` - Revertir la actualización
 
-### Example: A small [sensible](https://github.com/tpope/vim-sensible) Vim configuration
+### Ejemplo: Una pequeña configuration 
 
 ```vim
 call plug#begin()
@@ -203,7 +205,7 @@ Plug 'tpope/vim-sensible'
 call plug#end()
 ```
 
-### On-demand loading of plugins
+### Carga bajo demanda de plugins
 
 ```vim
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
@@ -226,28 +228,33 @@ Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 autocmd! User goyo.vim echom 'Goyo is now loaded!'
 ```
 
-The `for` option is generally not needed as most plugins for specific file types
-usually don't have too much code in the `plugin` directory. You might want to
-examine the output of `vim --startuptime` before applying the option.
+La opción `for` generalmente no es necesaria ya que la mayoría
+de los plugins para tipos de archivos específicos no suelen
+tener demasiado código en el directorio` plugin`. 
+Es posible que desee examinar la salida de `vim --startuptime`
+antes de aplicar la opción.
 
-### Post-update hooks
 
-There are some plugins that require extra steps after installation or update.
-In that case, use the `do` option to describe the task to be performed.
+### Acciónes post-actualizacion
+
+Hay algunos plugins que requieren pasos extra luego de la instalacion o 
+actualizacion. En esos casos, use la opcion `do` para describir la tarea
+a ser ejecutada
 
 ```vim
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 ```
 
-If the value starts with `:`, it will be recognized as a Vim command.
+
+Si el valor comienza com `:`, sera considerado como un comando de Vim
 
 ```vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 ```
 
-If you need more control, you can pass a reference to a Vim function that
-takes a single argument.
+Si usted necesita un mayor control, puede pasarle una referencia a una funcion
+Vim que tome un solo argumento
 
 ```vim
 function! BuildYCM(info)
@@ -263,51 +270,50 @@ endfunction
 Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 ```
 
-Both forms of post-update hook are executed inside the directory of the plugin
-and only run when the repository has changed, but you can force it to run
-unconditionally with the bang-versions of the commands: `PlugInstall!` and
-`PlugUpdate!`.
+Ambas acciónes post-actualizacion se ejecutan dentro del directorio del plugin
+y solo se ejecutan cuando el repositorio haya cambiado, pero puede obligarlo a
+ejecutarse incondicionalmente con los comandos: `PlugInstall!` Y `PlugUpdate!`.
 
-Make sure to escape BARs and double-quotes when you write the `do` option inline
-as they are mistakenly recognized as command separator or the start of the
-trailing comment.
+Asegúrese de evitar las barras y las comillas dobles cuando escriba la opción `do` 
+en línea, ya que se reconocen erróneamente como separadores de comandos o como 
+el comienzo del comentario final.
 
 ```vim
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install' }
 ```
 
-But you can avoid the escaping if you extract the inline specification using a
-variable (or any Vimscript expression) as follows:
+Pero puede evitar el escape si extrae la especificación en línea usando una
+variable (o cualquier expresión de Vimscript) de la siguiente manera:
 
 ```vim
 let g:fzf_install = 'yes | ./install'
 Plug 'junegunn/fzf', { 'do': g:fzf_install }
 ```
 
-### `PlugInstall!` and `PlugUpdate!`
+### `PlugInstall!` y `PlugUpdate!`
 
-The installer takes the following steps when installing/updating a plugin:
+El instalador toma los siguientes pasos cuando se instala o actualizaun plugin
 
-1. `git clone` or `git fetch` from its origin
-2. Check out branch, tag, or commit and optionally `git merge` remote branch
-3. If the plugin was updated (or installed for the first time)
-    1. Update submodules
-    2. Execute post-update hooks
+1. `git clone` o `git fetch` desde el origen
+2. Verifica ramas, tags o commits y opcionalmente `git merge` ramas remotas
+3. Si el plugin fue actualizado (o instalado por primera vez) If the plugin was updated (or installed for the first time)
+    1. actualiza submodulos
+    2. Ejecuta acciones post-actualizacion
 
-The commands with the `!` suffix ensure that all steps are run unconditionally.
+Los comandos con el sufijo `!` se aseguran que todos los pasos son ejecutados incondicionalmmte
 
-### Articles
+### Articulos
 
-- [Writing my own Vim plugin manager](http://junegunn.kr/2013/09/writing-my-own-vim-plugin-manager)
-- [Vim plugins and startup time](http://junegunn.kr/2014/07/vim-plugins-and-startup-time)
-- ~~[Thoughts on Vim plugin dependency](http://junegunn.kr/2013/09/thoughts-on-vim-plugin-dependency)~~
-    - *Support for Plugfile has been removed since 0.5.0*
+- [Escribiendo mi propio administrador de plugins para vim](http://junegunn.kr/2013/09/writing-my-own-vim-plugin-manager)
+- [Plugins de vim y tiempo de inicio](http://junegunn.kr/2014/07/vim-plugins-and-startup-time)
+- ~~[Pensamientos sobre la dependencia en los plugins de Vim](http://junegunn.kr/2013/09/thoughts-on-vim-plugin-dependency)~~
+    - *El soporte para Plugfile se ha eliminado desde 0.5.0*
 
-### Collaborators
+### Colaboradores
 
-- [Jan Edmund Lazo](https://github.com/janlazo) - Windows support
-- [Jeremy Pallats](https://github.com/starcraftman) - Python installer
+- [Jan Edmund Lazo](https://github.com/janlazo) - Soporte de ventanas
+- [Jeremy Pallats](https://github.com/starcraftman) - Instalador de Python 
 
-### License
+### Licencia
 
 MIT
