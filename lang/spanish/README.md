@@ -232,7 +232,7 @@ autocmd! User goyo.vim echom 'Goyo is now loaded!'
 
 La opción `for` generalmente no es necesaria ya que la mayoría
 de los plugins para tipos de archivos específicos no suelen
-tener demasiado código en el directorio` plugin`. 
+tener demasiado código en el directorio `plugin`. 
 Es posible que desee examinar la salida de `vim --startuptime`
 antes de aplicar la opción.
 
@@ -249,7 +249,7 @@ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py' }
 ```
 
 
-Si el valor comienza com `:`, sera considerado como un comando de Vim
+Si el valor comienza con `:`, sera considerado como un comando de Vim
 
 ```vim
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
@@ -275,10 +275,10 @@ Plug 'ycm-core/YouCompleteMe', { 'do': function('BuildYCM') }
 Ambas acciones post-actualización se ejecutan dentro del 
 directorio del plugin y solo se ejecutan cuando el 
 repositorio haya cambiado, pero puede obligarlo a ejecutarse 
-incondicionalmente con los comandos: PlugInstall! Y PlugUpdate!.
+incondicionalmente con los comandos: `PlugInstall!` Y `PlugUpdate!`.
 
 Asegúrese de evitar las barras y las comillas dobles cuando 
-escriba la opción do en línea, ya que se reconocen erróneamente 
+escriba la opción `do` en línea, ya que se reconocen erróneamente 
 como separadores de comandos o como el comienzo del comentario 
 final.
 
